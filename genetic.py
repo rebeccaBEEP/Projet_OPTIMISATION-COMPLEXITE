@@ -3,7 +3,7 @@
 import random
 from grid import get_neighbors
 
-# ─────────────────────────────────────────
+# ───────────────────────────────────────
 # CONSTANTES
 # ─────────────────────────────────────────
 
@@ -154,18 +154,15 @@ def genetic_algorithm(grid, start, goal):
 # TEST
 # ─────────────────────────────────────────
 
-grid = [
-    ['S', '0', '0', '0', 'X', '0'],
-    ['0', 'X', '0', '0', 'X', '0'],
-    ['0', 'X', '0', '0', '0', '0'],
-    ['0', '0', '0', 'X', '0', 'G']
-]
-start = (0, 0)
-goal  = (5, 3)
+if __name__ == "__main__":
+    grid = [
+        ['S', '0', '0', '0', 'X', '0'],
+        ['0', 'X', '0', '0', 'X', '0'],
+        ['0', 'X', '0', '0', '0', '0'],
+        ['0', '0', '0', 'X', '0', 'G']
+    ]
+    start = (0, 0)
+    goal = (5, 3)
 
-path = genetic_algorithm(grid, start, goal)
-print("Chemin Génétique :", path)
-if path:
-    print(f"Longueur : {len(path) - 1} étapes")
-else:
-    print("Aucun chemin trouvé")
+    path = genetic_algorithm(grid, start, goal)
+    print("Chemin Génétique :", path)

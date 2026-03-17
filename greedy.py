@@ -1,5 +1,12 @@
+
+
+#heuristic(a, b) : distance de Manhattan entre a et b
+
 def heuristic(a, b):
     return abs(a[0]-b[0]) + abs(a[1]-b[1])
+
+
+#get_neighbors(grid, x, y) : retourne les cases accessibles autour de (x,y)
 
 def get_neighbors(grid, x, y):
     neighbors = []
@@ -11,7 +18,10 @@ def get_neighbors(grid, x, y):
                 neighbors.append((nx, ny))
     return neighbors
 
-def greedy_search(grid, start, goal):
+
+# greedy_search(grid, start, goal) : implémente l'algorithme glouton
+
+def greedy_search(grid, start, goal): 
     path = [start]
     current = start
     visited = set()
@@ -24,17 +34,18 @@ def greedy_search(grid, start, goal):
         current = min(neighbors, key=lambda n: heuristic(n, goal))
         visited.add(current)
         path.append(current)
-    return path
+    return path 
 
 # TEST
-grid = [
-    ['S', '0', '0', '0', 'X', '0'],
-    ['0', 'X', '0', '0', 'X', '0'],
-    ['0', 'X', '0', '0', '0', '0'],
-    ['0', '0', '0', 'X', '0', 'G']
-]
-start = (0, 0)
-goal = (5, 3)
 
-path = greedy_search(grid, start, goal)
-print("Chemin Greedy :", path)
+if __name__ == "__main__":
+    grid = [
+        ['S', '0', '0', '0', 'X', '0'],
+        ['0', 'X', '0', '0', 'X', '0'],
+        ['0', 'X', '0', '0', '0', '0'],
+        ['0', '0', '0', 'X', '0', 'G']
+    ]
+    start = (0, 0)
+    goal = (5, 3)
+    path = greedy_search(grid, start, goal)
+    print("Chemin glouton :", path)

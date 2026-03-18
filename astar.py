@@ -8,6 +8,7 @@ def astar_search(grid, start, goal):
     open_list = []
     heapq.heappush(open_list, (0, 0, start))  # (f, g, position)
     g_score = {start: 0}
+    came_from = {}
 
     while open_list:
         f, g, current = heapq.heappop(open_list)

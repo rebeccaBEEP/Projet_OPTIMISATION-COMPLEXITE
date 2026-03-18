@@ -1,22 +1,10 @@
-
+from grid import get_neighbors
 
 #heuristic(a, b) : distance de Manhattan entre a et b
 
 def heuristic(a, b):
     return abs(a[0]-b[0]) + abs(a[1]-b[1])
 
-
-#get_neighbors(grid, x, y) : retourne les cases accessibles autour de (x,y)
-
-def get_neighbors(grid, x, y):
-    neighbors = []
-    directions = [(0,-1), (0,1), (-1,0), (1,0)]
-    for dx, dy in directions:
-        nx, ny = x + dx, y + dy
-        if 0 <= ny < len(grid) and 0 <= nx < len(grid[ny]):
-            if grid[ny][nx] != 'X':
-                neighbors.append((nx, ny))
-    return neighbors
 
 
 # greedy_search(grid, start, goal) : implémente l'algorithme glouton
